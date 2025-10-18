@@ -1,0 +1,22 @@
+/* Ocupa el espacio en el toolbar para empujar los botones a la derecha */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Marca el botón activo (routerLinkActive) */
+.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Marca + tipografía base (opcional) */
+.brand {
+  font-weight: 700;
+  font-size: 1.125rem; /* ~ text-lg */
+}
+
+/* Padding del contenedor principal */
+.content {
+  padding: 1rem; /* ~ p-4 */
+}

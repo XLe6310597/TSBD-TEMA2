@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "target": "ES2022",
+    "useDefineForClassFields": false,      // ✅ Evita errores con la inyección
+    "strictPropertyInitialization": false, // ✅ Permite inicializar con DI
+    "types": ["node"]
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,     // ✅ Verificación correcta de DI
+    "strictTemplates": true,               // ✅ Plantillas más seguras
+    "compilationMode": "partial"           // ✅ Recomendado para librerías modernas
+  },
+  "include": ["src/**/*.ts", "src/app/models/course.model,ts"],
+  "exclude": ["src/**/*.spec.ts"]
+}

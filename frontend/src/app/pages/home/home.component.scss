@@ -1,0 +1,77 @@
+:root{
+  --bg: #f7f7f8; --card: #ffffff; --text: #1f2328; --muted: #6b7280;
+  --border: #e5e7eb; --brand: #2563eb; --brand-hover: #1d4ed8;
+  --radius: 16px; --shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0c0f; --card:#0f1115; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937;
+    --brand:#3b82f6; --brand-hover:#2563eb; --shadow:0 8px 24px rgba(0,0,0,.35);
+  }
+}
+
+*{ box-sizing: border-box; }
+
+.home{
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.home__header{ text-align: center; margin-bottom: 16px; }
+.home__title{ font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; margin: 0 0 6px; letter-spacing: .2px; }
+.home__subtitle{ margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Nuevo: grid responsive de tiles */
+.home__grid{
+  width: 100%;
+  max-width: 680px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px){
+  .home__grid{
+    grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas medianas+ */
+  }
+}
+
+/* Tarjetas clicables (tiles) */
+.tile{
+  display: grid;
+  grid-template-columns: 40px 1fr 16px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .08s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  text-align: left;
+}
+
+.tile:focus{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.tile:hover{
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 6%, var(--card));
+}
+
+.tile__icon{ font-size: 22px; line-height: 1; display: grid; place-items: center; }
+.tile__body{ display: grid; gap: 2px; }
+.tile__title{ font-weight: 700; }
+.tile__desc{ font-size: 12px; color: var(--muted); }
+.tile__chev{ font-size: 22px; opacity: .35; }
+
+/* (Opcional) Si aún tienes .home__actions y .btn, puedes eliminar esas reglas para limpiar CSS */

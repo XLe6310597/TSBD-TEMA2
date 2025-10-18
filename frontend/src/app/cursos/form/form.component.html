@@ -1,0 +1,28 @@
+<mat-card class="curso-form-card">
+  <h2>{{ isEdit ? 'Editar Curso' : 'Nuevo Curso' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre del curso</mat-label>
+        <input matInput formControlName="nombre" placeholder="Ej. Matemáticas" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Docente</mat-label>
+        <input matInput formControlName="docente" placeholder="Ej. Juan Pérez" />
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </button>
+      <button mat-stroked-button color="warn" type="button" (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</mat-card>

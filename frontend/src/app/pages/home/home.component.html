@@ -1,0 +1,27 @@
+<div class="home">
+  <header class="home__header">
+    <h1 class="home__title">Sistema Académico</h1>
+    <p class="home__subtitle">Elige una sección</p>
+  </header>
+
+  <!-- Nuevo: grid de tiles -->
+  <section class="home__grid" aria-label="Secciones de administración">
+    <button class="tile" (click)="goToCursos()" aria-label="Administrar cursos">
+      <span class="tile__icon" aria-hidden="true">📘</span>
+      <span class="tile__body">
+        <span class="tile__title">Cursos</span>
+        <span class="tile__desc">Crear y administrar cursos</span>
+      </span>
+      <span class="tile__chev" aria-hidden="true">›</span>
+    </button>
+
+    <button class="tile" (click)="goToStudents()" aria-label="Administrar estudiantes">
+      <span class="tile__icon" aria-hidden="true">👩‍🎓</span>
+      <span class="tile__body">
+        <span class="tile__title">Estudiantes</span>
+        <span class="tile__desc">Inscripciones y registros</span>
+      </span>
+      <span class="tile__chev" aria-hidden="true">›</span>
+    </button>
+  </section>
+</div>

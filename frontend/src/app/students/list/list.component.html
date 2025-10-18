@@ -1,0 +1,49 @@
+<div class="students-container alt">
+  <div class="header">
+    <h2>Estudiantes</h2>
+
+    <!-- opcional: buscador -->
+    <div class="tools">
+      <input class="search" placeholder="Buscar por nombre o curso..."  />
+      <button class="btn btn-primary" (click)="goToNew()">➕ Nuevo</button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <div class="skeleton-row" *ngFor="let i of [1,2,3,4,5]"></div>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="table-wrap" *ngIf="!loading && students.length > 0">
+    <table class="students-table fancy">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido P.</th>
+          <th>Apellido M.</th>
+          <th>Curso</th>
+          <th class="th-actions">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of students">
+          <td data-label="ID">{{ s.id }}</td>
+          <td data-label="Nombre">{{ s.nombre }}</td>
+          <td data-label="Apellido P.">{{ s.apellidoP }}</td>
+          <td data-label="Apellido M.">{{ s.apellidoM }}</td>
+          <td data-label="Curso"><span class="badge">#{{ s.cursoId }}</span></td>
+          <td class="actions-cell" data-label="Acciones">
+            <button class="icon-btn edit" (click)="goToEdit(s.id!)" aria-label="Editar">✏️</button>
+            <button class="icon-btn del" (click)="deleteStudent(s.id)" aria-label="Eliminar">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!loading && students.length === 0" class="empty">
+    No hay estudiantes registrados.
+  </div>
+</div>

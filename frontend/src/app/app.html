@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <span class="brand">Microservicios Frontend</span>
+  <span class="spacer"></span>
+
+  <button
+    mat-button
+    routerLink="/students"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Estudiantes
+  </button>
+
+  <button
+    mat-button
+    routerLink="/cursos"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Cursos
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
