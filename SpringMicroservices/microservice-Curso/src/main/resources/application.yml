@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: msvc-curso
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/studentDb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: my-secret-pw
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # 👉 usa "update" en vez de "create" para no borrar tus tablas
+    show-sql: true       # 👉 opcional, muestra las consultas en consola
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
+eureka:
+  client:
+    service-url:        # 👈 estaba mal escrito como "server-url"
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
